@@ -13,6 +13,12 @@
 <body>
 	<h1>ホーム画面</h1>
 
+	<form method="get" action="PrivateCalender">
+		<input type="submit" value="ユーザー"><br>
+	</form>
+
+	<a href="Login">ログイン</a>
+
 	<div class="container">
 		<div class="row" style="height: 10em;">
 
