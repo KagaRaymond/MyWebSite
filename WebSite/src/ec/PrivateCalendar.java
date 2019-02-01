@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PrivateCalender
+ * Servlet implementation class PrivateCalendar
  */
-@WebServlet("/PrivateCalender")
-public class PrivateCalender extends HttpServlet {
+@WebServlet("/PrivateCalendar")
+public class PrivateCalendar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrivateCalender() {
+    public PrivateCalendar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class PrivateCalender extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.getRequestDispatcher(EcHelper.PRIVATE_CALENDER_PAGE).forward(request, response);
+		request.getRequestDispatcher(EcHelper.PRIVATE_CALENDAR_PAGE).forward(request, response);
 
 	}
 

@@ -34,7 +34,7 @@ public class EcHelper {
 	// ログアウト
 	static final String LOGOUT_PAGE = "/WEB-INF/jsp/logout.jsp";
 	// ユーザープライベートカレンダーページ
-	static final String PRIVATE_CALENDER_PAGE = "/WEB-INF/jsp/privatecalender.jsp";
+	static final String PRIVATE_CALENDAR_PAGE = "/WEB-INF/jsp/privatecalendar.jsp";
 	// ユーザー登録情報入力
 	static final String REGIST_PAGE = "/WEB-INF/jsp/regist.jsp";
 	// ユーザー登録情報確認
