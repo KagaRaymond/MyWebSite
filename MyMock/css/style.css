@@ -192,3 +192,11 @@ main {
 .form-item {
 	margin-bottom: 20px
 }
+
+.sample{
+	font-feature-settings: "palt";
+}
+
+.align-items{
+	align-items: center;
+}
