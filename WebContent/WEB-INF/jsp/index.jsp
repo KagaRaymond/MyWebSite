@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="Materialize/css/bootstrap.min.css" rel="stylesheet">
+<link href="Materialize/css/style.css" rel="stylesheet" >
+
+<title>TOP PAGE</title>
+</head>
+<body>
+	<div class="text-align-right">
+		<a href="Login">Logout</a>
+	</div>
+	<h1 class="text-align">February 2019</h1>
+
+
+	<div class="wrapper">
+	  <main>
+	    <div class="calendar">
+	      <div class="calendar__header">
+	        <div>sun</div>
+	        <div>mon</div>
+	        <div>tue</div>
+	        <div>wed</div>
+	        <div>thu</div>
+	        <div>fri</div>
+	        <div>sat</div>
+	      </div>
+	      <div class="calendar__week">
+	        <a class="calendar__day day" href="">1</a>
+	        <a class="calendar__day day" href="">2</a>
+	        <a class="calendar__day day" href="">3</a>
+	        <a class="calendar__day day" href="">4</a>
+	        <a class="calendar__day day" href="">5</a>
+	        <a class="calendar__day day" href="">6</a>
+	        <a class="calendar__day day" href="">7</a>
+	      </div>
+	      <div class="calendar__week">
+	        <a class="calendar__day day" href="">8</a>
+	        <a class="calendar__day day" href="">9</a>
+	        <a class="calendar__day day" href="">10</a>
+	        <a class="calendar__day day" href="">11</a>
+	        <a class="calendar__day day" href="">12</a>
+	        <a class="calendar__day day" href="">13</a>
+	        <a class="calendar__day day" href="">14</a>
+	      </div>
+	      <div class="calendar__week">
+	      	<a class="calendar__day day" href="">15</a>
+	      	<a class="calendar__day day" href="">16</a>
+	        <a class="calendar__day day" href="">17</a>
+	        <a class="calendar__day day" href="">18</a>
+	        <a class="calendar__day day" href="">19</a>
+	        <a class="calendar__day day" href="">20</a>
+	      	<a class="calendar__day day" href="">21</a>
+	      </div>
+	      <div class="calendar__week">
+	        <a class="calendar__day day" href="">22</a>
+	        <a class="calendar__day day" href="">23</a>
+	        <a class="calendar__day day" href="">24</a>
+	        <a class="calendar__day day" href="">25</a>
+	        <a class="calendar__day day" href="">26</a>
+	        <a class="calendar__day day" href="">27</a>
+	        <a class="calendar__day day" href="">28</a>
+	      </div>
+	      <div class="calendar__week">
+	        <a class="calendar__day day" href="">29</a>
+	        <a class="calendar__day day" href="">30</a>
+	        <a class="calendar__day day" href="">31</a>
+	        <a class="calendar__day day" href="">1</a>
+	        <a class="calendar__day day" href="">2</a>
+	        <a class="calendar__day day" href="">3</a>
+	        <a class="calendar__day day" href="">4</a>
+	      </div>
+	    </div>
+	  </main>
+
+	</div>
+
+
+</body>
+</html>
