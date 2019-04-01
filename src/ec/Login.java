@@ -67,9 +67,9 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("users", user);
 
-		// ユーザ一覧のサーブレットにリダイレクト
+		// カレンダーページのサーブレットにリダイレクト
 		// リダイレクトは指定した名前のサーブレットにGETアクセス
-		response.sendRedirect("users");
+		response.sendRedirect("Index");
 
 	}
 

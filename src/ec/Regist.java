@@ -38,6 +38,24 @@ public class Regist extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//リクエストパラメータの文字コードを指定
+		request.setCharacterEncoding("UTF-8");
+
+		//リクエストパラメータの入力項目を取得
+		String loginId = request.getParameter("login_id");
+		String password = request.getParameter("password");
+		String passwordCheck = request.getParameter("password_check");
+		String name = request.getParameter("user_name");
+		String birthday = request.getParameter("birthdate");
+
+		/**パスワードとパスワード(確認)の入力内容が異なる場合の登録失敗**/
+		if(!password.equals(passwordCheck)) {
+			request.setAttribute("errMsg","パスワードが一致しておりません");
+			//新規登録jspにフォワード
+			request.getRequestDispatcher(EcHelper.REGIST_PAGE).forward(request, response);
+			return;
+		}
+
 
 	}
 

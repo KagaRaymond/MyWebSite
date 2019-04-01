@@ -14,6 +14,8 @@ import base.DBManager;
  */
 public class UserDAO {
 
+	//ログインIDとパスワードに紐づくユーザー情報を返す//
+	
     public UserDAO findByLoginInfo(String loginId, String password) {
         Connection conn = null;
         try {
