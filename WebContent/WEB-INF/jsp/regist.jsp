@@ -28,7 +28,7 @@
 
 				<div class="row form-item">
 					<label class="col-sm-3 col-form-label">生年月日</label>
-					<input class="col-sm-7 form-control" name="birthdate" type="text" required>
+					<input class="col-sm-7 form-control" name="birthdate" type="text" placeholder="年/月/日　例）2000/01/01" required>
 				</div>
 
 				<div class="row form-item">

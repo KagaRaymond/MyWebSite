@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.UserDataBeans;
+
 /**
  * Servlet implementation class Regist
  */
@@ -39,7 +41,7 @@ public class Regist extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//リクエストパラメータの文字コードを指定
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UT8");
 
 		//リクエストパラメータの入力項目を取得
 		String loginId = request.getParameter("login_id");
@@ -56,7 +58,16 @@ public class Regist extends HttpServlet {
 			return;
 		}
 
+		//リクエストスコープに保存するインスタンス(JavaBeans)の生成
+		UserDataBeans user = new UserDataBeans();
+		//インスタンスのフィールドに値を設定
+		user.setLoginId(loginId);
+		user.setPassword(password);
+		user.setName(name);
+		user.setBirthDate(birthday);
 
+		/** ユーザー登録確認のサーブレットにリダイレクト（GETアクセス） **/
+		response.sendRedirect(EcHelper.REGIST_CONFIRM_PAGE);
 	}
 
 }

@@ -15,7 +15,7 @@ import base.DBManager;
 public class UserDAO {
 
 	//ログインIDとパスワードに紐づくユーザー情報を返す//
-	
+
     public UserDAO findByLoginInfo(String loginId, String password) {
         Connection conn = null;
         try {
@@ -28,18 +28,21 @@ public class UserDAO {
              // SELECTを実行し、結果表を取得
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
-//            //ハッシュを生成したい元の文字列
-//            String source = password;
-//            //ハッシュ生成前にバイト配列に置き換える際のCharset
-//            Charset charset = StandardCharsets.UTF_8;
-//            //ハッシュアルゴリズム
-//            String algorithm = "MD5";
-//
-//            //ハッシュ生成処理
-//            byte[] bytes = MessageDigest.getInstance(algorithm).digest(source.getBytes(charset));
-//            String result = DatatypeConverter.printHexBinary(bytes);
-//            pStmt.setString(1, loginId);
-//            pStmt.setString(2, result);
+            /**
+            //ハッシュを生成したい元の文字列
+            String source = password;
+            //ハッシュ生成前にバイト配列に置き換える際のCharset
+            Charset charset = StandardCharsets.UTF_8;
+            //ハッシュアルゴリズム
+            String algorithm = "MD5";
+
+            //ハッシュ生成処理
+            byte[] bytes = MessageDigest.getInstance(algorithm).digest(source.getBytes(charset));
+            String result = DatatypeConverter.printHexBinary(bytes);
+            pStmt.setString(1, loginId);
+            pStmt.setString(2, result);
+            **/
+
 
             pStmt.setString(1, loginId);
             pStmt.setString(2, password);
@@ -70,6 +73,48 @@ public class UserDAO {
             }
         }
     }
+  public void userInsert(String loginId, String password, String name, String birth_date) {
+	Connection conn = null;
+	try {
+		//データベースへ接続
+		conn = DBManager.getConnection();
+		//INSERT文を準備
+		String sql = "INSERT INTO user(login_id, password, name, birth_date, create_date, update_date)VALUES(?,?,?,?,now(),now());";
+		//INSERTを実行
+		PreparedStatement stmt = conn.prepareStatement(sql);
+
+		/**
+		//ハッシュを生成したい元の文字列
+        String source = password;
+        //ハッシュ生成前にバイト配列に置き換える際のCharset
+        Charset charset = StandardCharsets.UTF_8;
+        //ハッシュアルゴリズム
+        String algorithm = "MD5";
+        //ハッシュ生成処理
+        byte[] bytes = MessageDigest.getInstance(algorithm).digest(source.getBytes(charset));
+        String result = DatatypeConverter.printHexBinary(bytes);
+        **/
+
+		stmt.setString(1,loginId);
+		stmt.setString(2,password);
+		stmt.setString(3,name);
+		stmt.setString(4,birth_date);
+
+		stmt.executeUpdate();
+		stmt.close();
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}finally {
+		 // データベース切断
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+	}
+}
 
 
 //
@@ -343,47 +388,6 @@ public class UserDAO {
 //    	}
 //    }
 //
-//    public void userInsert(String loginId, String password, String name, String birth_date) {
-//    	Connection conn = null;
-//    	try {
-//    		//データベースへ接続
-//    		conn = DBManager.getConnection();
-//    		//INSERT文を準備
-//    		String sql = "INSERT INTO user(login_id, password, name, birth_date, create_date, update_date)VALUES(?,?,?,?,now(),now());";
-//    		//INSERTを実行
-//    		PreparedStatement stmt = conn.prepareStatement(sql);
-//
-//    		//ハッシュを生成したい元の文字列
-//            String source = password;
-//            //ハッシュ生成前にバイト配列に置き換える際のCharset
-//            Charset charset = StandardCharsets.UTF_8;
-//            //ハッシュアルゴリズム
-//            String algorithm = "MD5";
-//
-//            //ハッシュ生成処理
-//            byte[] bytes = MessageDigest.getInstance(algorithm).digest(source.getBytes(charset));
-//            String result = DatatypeConverter.printHexBinary(bytes);
-//
-//    		stmt.setString(1,loginId);
-//    		stmt.setString(2,result);
-//    		stmt.setString(3,name);
-//    		stmt.setString(4,birth_date);
-//
-//    		stmt.executeUpdate();
-//    		stmt.close();
-//    	}catch(SQLException | NoSuchAlgorithmException e) {
-//    		e.printStackTrace();
-//    	}finally {
-//    		 // データベース切断
-//            if (conn != null) {
-//                try {
-//                    conn.close();
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//    	}
-//    }
 //    /** パスワード以外を更新するメソッド **/
 //
 //    public void updateInsert(String name, String birth_date, String loginId) {
